@@ -53,11 +53,11 @@ Operator Hosts file `/etc/hosts`
 192.168.69.2 web
 ```
 
-Ansible inventory file [/home/ops/hosts.ini]()
+Ansible inventory file [/home/ops/hosts.ini](https://github.com/Sprtcrnbry/UPASJ/blob/main/hosts.ini)
 
-Ansible playbook file [/home/ops/create_300_users.yaml]()
+Ansible playbook file [/home/ops/create_300_users.yaml](https://github.com/Sprtcrnbry/UPASJ/blob/main/create_300_users.yaml)
 
-Ansible playbook file [/home/ops/dns_server.yaml]()
+Ansible playbook file [/home/ops/dns_server.yaml](https://github.com/Sprtcrnbry/UPASJ/blob/main/dns_server.yaml)
 
 Operator SSH public key generate
 
