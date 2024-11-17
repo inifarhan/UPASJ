@@ -49,8 +49,8 @@ root@operator:~# usermod -a -G sudo (username)
 Operator Hosts file `/etc/hosts`
 
 ```
-192.168.69.1 controller
-192.168.69.2 web
+192.168.69.1   controller
+192.168.69.2   web
 ```
 
 Ansible inventory file [/home/ops/hosts.ini](https://github.com/Sprtcrnbry/UPASJ/blob/main/hosts.ini)
@@ -76,10 +76,10 @@ DNS config master `(/home/ops/named.conf.master > Controller /etc/bind/named.con
 
 ```
 zone "cometstar.net.id" {
-type master;
-file "/etc/bind/db.internal";
-allow-transfer { 192.168.69.2; };
-also-notify { 192.168.69.2; };
+  type master;
+  file "/etc/bind/db.internal";
+  allow-transfer { 192.168.69.2; };
+  also-notify { 192.168.69.2; };
 };
 ```
 
@@ -87,9 +87,9 @@ DNS config slave `(/home/ops/named.conf.slave > Web /etc/bind/named.conf.local)`
 
 ```
 zone "cometstar.net.id" {
-type slave;
-file "/var/cache/bind/db.internal";
-masters { 192.168.69.1; };
+  type slave;
+  file "/var/cache/bind/db.internal";
+  masters { 192.168.69.1; };
 };
 ```
 
@@ -135,10 +135,10 @@ root@controller:~# ls /home
 
 Install postfix, dovecot on web
 
-~~~
+```
 root@web:~# apt install postfix dovecot-imapd dovecot-pop3d
 root@web:~# dpkg-reconfigure postfix
-~~~
+```
 
 Make sure Email has either STARTTLS or SSL/TLS authentication enabled and working.
 
@@ -153,17 +153,15 @@ Postfix config `/etc/postfix/master.cf`
 ```
 submission inet n - y - - smtpd
 # -o syslog_name=postfix/submission
-
-- o smtpd_tls_security_level=encrypt
-- o smtpd_sasl_auth_enable=yesWWW index /var/www/html/index.html
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_sasl_auth_enable=yes
 
 ~~~
 
 smtps inet n - y - - smtpd
 # -o syslog_name=postfix/smtps
-
-- o smtpd_tls_wrappermode=yes
-- o smtpd_sasl_auth_enable=yes
+  -o smtpd_tls_wrappermode=yes
+  -o smtpd_sasl_auth_enable=yes
 ```
 
 Dovecot config `/etc/dovecot/conf.d/10-mail.conf`
@@ -240,6 +238,3 @@ directory. You can use FileZilla program on Operator.
 ```
 ops@operator:~$ sudo apt install filezilla
 ```
-
-
-
