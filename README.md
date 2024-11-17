@@ -3,9 +3,9 @@
 Controller `/etc/network/interfaces`
 
 ```
-auto ens
+auto ens33
 iface ens33 inet static
-address 192.168.69.1
+      address 192.168.69.1
 ```
 
 Controller DHCP Server install
@@ -18,24 +18,24 @@ Controller DHCP config `/etc/dhcp/dhcpd.conf`
 
 ```
 subnet 192.168.69.0 netmask 255.255.255.0 {
-range 192.168.69.2 192.168.69.
-option domain-name-servers “cometstar.net.id”;
-option domain-name “cometstar.net.id”;
+  range 192.168.69.2 192.168.69.254
+  option domain-name-servers “cometstar.net.id”;
+  option domain-name “cometstar.net.id”;
 # option routers 192.168.69.1;
-option broadcast-address 192.168.69.255;
-default-lease-time 600;
+  option broadcast-address 192.168.69.255;
+  default-lease-time 600;
 }
 
 ~~~
 
 host web {
-hardware ethernet 00:00:00:00:00:00; # MAC address Web VM
-fixed-address 192.168.69.2;
+  hardware ethernet 00:00:00:00:00:00; # MAC address Web VM
+  fixed-address 192.168.69.2;
 }
 
 host operator {
-hardware ethernet 00:00:00:00:00:00; # MAC address Operator VM
-fixed-address 192.168.69.3;
+  hardware ethernet 00:00:00:00:00:00; # MAC address Operator VM
+  fixed-address 192.168.69.3;
 }
 ```
 
