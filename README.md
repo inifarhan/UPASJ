@@ -1,4 +1,14 @@
 # WIP
+## Topology
+```
+           [===========]
+           [=OPERATOR =]
+           [===========]
+                 ^
+[============]   |   [===========]
+[=CONTROLLER=] <---> [====WEB====]
+[============]       [===========]
+```
 
 Controller `/etc/network/interfaces`
 
