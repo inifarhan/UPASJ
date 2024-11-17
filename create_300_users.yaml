@@ -1,0 +1,14 @@
+- name: Create 300 users
+  hosts: servers
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: Create 300 users
+      user:
+        name: "user{{ '%03d' | format (item) }}"
+        password: "{{ 'password' | password_hash('sha512') }}"
+        home: "/home/user{{ '%03d' | format (item) }}"
+      loop: "{{ range(0, 300) }}"
+      async: 60
+      poll: 0
