@@ -25,9 +25,9 @@ subnet 192.168.69.0 netmask 255.255.255.0 {
   option broadcast-address 192.168.69.255;
   default-lease-time 600;
 }
+```
 
-~~~
-
+```
 host web {
   hardware ethernet 00:00:00:00:00:00; # MAC address Web VM
   fixed-address 192.168.69.2;
@@ -155,9 +155,9 @@ submission inet n - y - - smtpd
 # -o syslog_name=postfix/submission
   -o smtpd_tls_security_level=encrypt
   -o smtpd_sasl_auth_enable=yes
+```
 
-~~~
-
+```
 smtps inet n - y - - smtpd
 # -o syslog_name=postfix/smtps
   -o smtpd_tls_wrappermode=yes
