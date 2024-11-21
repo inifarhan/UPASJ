@@ -106,7 +106,7 @@ zone "cometstar.net.id" {
 Copy default DNS config (install bind9 on operator for config)
 
 ```
-ops@operator:~$ sudo apt install bind
+ops@operator:~$ sudo apt install bind9
 ops@operator:~$ cp /etc/bind/db.local /home/ops/db.internal
 ```
 
@@ -190,7 +190,7 @@ ssl_key = </etc/dovecot/private/dovecot.key
 Install web server
 
 ```
-root@web:~# apt install apache
+root@web:~# apt install apache2
 ```
 
 Web server content
