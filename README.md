@@ -208,6 +208,13 @@ root@web:~# apt install mariadb-server
 root@web:~# apt install roundcube
 ```
 
+Copy apache vhost mail config from template
+
+```
+root@web:~# cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/mail.conf
+root@web:~# a2ensite mail
+```
+
 `/etc/apache2/sites-available/mail.conf`
 
 ```
